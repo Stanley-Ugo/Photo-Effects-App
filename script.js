@@ -104,6 +104,14 @@ function clearChanges() {
     img.src = reader.result;
 }
 
+function download() {
+    const image = canvas.toDataURL();
+    const link = document.createElement('a');
+    link.href = image;
+    link.download = "image.png";
+    link.click();
+}
+
 document.querySelectorAll('button')[0].addEventListener("click", greyscale);
 document.querySelectorAll('button')[1].addEventListener("click", sepia);
 document.querySelectorAll('button')[2].addEventListener("click", invert);
@@ -112,6 +120,7 @@ document.querySelectorAll('button')[4].addEventListener("click", bgr);
 document.querySelectorAll('button')[5].addEventListener("click", gbr);
 document.querySelectorAll('button')[6].addEventListener("click", grb);
 document.querySelectorAll('button')[7].addEventListener("click", clearChanges);
+document.querySelectorAll('button')[8].addEventListener("click", download);
 
 const imageLoader = document.getElementById("uploader");
 imageLoader.addEventListener("change", uploadImage);
